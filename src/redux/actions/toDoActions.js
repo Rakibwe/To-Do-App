@@ -6,6 +6,5 @@ export const addToDo = addToDoItem => {
 }
 
 export const removeToDo = id => {
-    console.log(id)
     return { type: REMOVE_TODO, id }
 }

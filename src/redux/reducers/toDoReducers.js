@@ -15,7 +15,7 @@ const toDoReducers = (state = initialState, action) => {
         case REMOVE_TODO:
             const toDoKey = action.id;
             console.log(toDoKey)
-            const remaining = state.toDoItem.filter(list => list.toDoId !== toDoKey)
+            const remaining = state.toDoItem.filter(item => item.toDoId !== toDoKey)
             return { ...state, toDoItem: remaining }
         default: return state;
     }

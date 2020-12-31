@@ -5,10 +5,9 @@ import { useForm } from "react-hook-form";
 import ToDoList from '../ToDoList.js/ToDoList';
 
 const AddToDo = (props) => {
-    //  console.log(props)
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = inputData => {
-     props.addToDo(inputData)
+        props.addToDo(inputData)
     }
     return (
         <div>
@@ -19,14 +18,14 @@ const AddToDo = (props) => {
                 {errors.text && <span style={{ color: 'red' }}>This field is required</span>}
             </form>
             {
-                props.product.map(item => <ToDoList item={item}/>)
+                props.product.map(item => <ToDoList item={item} />)
             }
         </div>
     );
 };
 
 const mapStateToProps = state => {
-    return {product:state.toDoItem}  
+    return { product: state.toDoItem }
 };
 
 const mapDispatchToProps = {
