@@ -11,12 +11,12 @@ const toDoReducers = (state = initialState, action) => {
                 toDoId: state.toDoItem.length + 1
             };
             const updateState = [...state.toDoItem, newItem]
-            return { ...state, toDoItem: updateState }
+            return { ...state, toDoItem: updateState };
         case REMOVE_TODO:
             const toDoKey = action.id;
             console.log(toDoKey)
             const remaining = state.toDoItem.filter(item => item.toDoId !== toDoKey)
-            return { ...state, toDoItem: remaining }
+            return { ...state, toDoItem: remaining };
         default: return state;
     }
 };
