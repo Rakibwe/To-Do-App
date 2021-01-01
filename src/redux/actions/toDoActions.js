@@ -5,6 +5,6 @@ export const addToDo = addToDoItem => {
     return { type: ADD_TODO, addToDoItem }
 }
 
-export const removeToDo = id => {
+export let removeToDo = id => {
     return { type: REMOVE_TODO, id }
 }

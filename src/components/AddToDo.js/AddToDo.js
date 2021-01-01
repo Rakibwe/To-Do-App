@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addToDo } from '../../redux/actions/toDoActions';
 import { useForm } from "react-hook-form";
-import ToDoList from '../ToDoList.js/ToDoList';
 
 const AddToDo = (props) => {
     const { register, handleSubmit, errors } = useForm();
@@ -17,19 +16,14 @@ const AddToDo = (props) => {
                 <br />
                 {errors.text && <span style={{ color: 'red' }}>This field is required</span>}
             </form>
-            {
-                props.product.map(item => <ToDoList item={item} />)
-            }
         </div>
     );
 };
 
-const mapStateToProps = state => {
-    return { product: state.toDoItem }
-};
+
 
 const mapDispatchToProps = {
     addToDo: addToDo
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddToDo);
+export default connect(null, mapDispatchToProps)(AddToDo);
