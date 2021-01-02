@@ -11,7 +11,7 @@ export const removeToDo = id => {
     return { type: REMOVE_TODO, id }
 }
 
-export const updateToDoItem = (updateKey,toDoName) => {
-    console.log(updateKey,toDoName)
-    return { type: UPDATE_TODO, updateKey, toDoName}
+export const updateToDoItem = (updateItem) => {
+    console.log(updateItem)
+    return { type: UPDATE_TODO, updateItem: updateItem }
 }

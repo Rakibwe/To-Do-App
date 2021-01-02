@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import { connect,} from 'react-redux';
+import { connect, } from 'react-redux';
 import { updateToDoItem } from '../../redux/actions/toDoActions';
 
-const ToDoItem = ({ item, removeToDo,updateToDoItem }) => {
-    const toDoNames = item.pd;
+const ToDoItem = ({ item, removeToDo, updateToDoItem }) => {
+    // const toDoNames = item.pd;
     const updateKey = item.toDoId;
     const [updateToDo, setUpdateToDo] = useState(false);
-    // const [toDoName, setToDoName] = useState(toDoNames);
-    // const dispatch = useDispatch();
-      toDoName()
-    // console.log(toDoName())
+    const [toDoName, setToDoName] = useState([]);
     return (
         <div>
             <h4>#{item.toDoId}</h4>
-            {updateToDo ? <input type="text" onChange={(e) => toDoName(e.target.value)} value={toDoNames} /> : <h2>{item.pd}</h2>}
+            {updateToDo ? <input type="text" onChange={(e) => setToDoName(e.target.value)} /> : <h2>{item.pd}</h2>}
             <button onClick={() => removeToDo(item.toDoId)}>
                 DELETE</button>
             <button
@@ -21,8 +18,8 @@ const ToDoItem = ({ item, removeToDo,updateToDoItem }) => {
                     if (updateToDo) {
                         updateToDoItem(
                             {
-                                updateKey,
-                                toDoName
+                                updateKey: updateKey,
+                                todo: toDoName
                             }
                         );
 
@@ -41,4 +38,4 @@ const mapDispatchToProps = {
 }
 
 
-export default connect(null,mapDispatchToProps) (ToDoItem);
+export default connect(null, mapDispatchToProps)(ToDoItem);
