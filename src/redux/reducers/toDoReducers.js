@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO } from "../actions/toDoActions";
+import { ADD_TODO, REMOVE_TODO, UPDATE_TODO } from "../actions/toDoActions";
 
 const initialState = {
     toDoItem: []
@@ -16,6 +16,15 @@ const toDoReducers = (state = initialState, action) => {
             const toDoKey = action.id;
             const remaining = state.toDoItem.filter(item => item.toDoId !== toDoKey)
             return { ...state, toDoItem: remaining };
+        case UPDATE_TODO:
+            console.log(action)
+            // updateToDo = action.toDoName;
+            const updateToDo = state.toDoItem.find(checkId => checkId.toDoId == action.updateKey);
+            console.log(updateToDo)
+            // updateToDo = { pd: action.toDoName };
+            // const setValue = [state.toDoItem, updateToDo]
+            return { ...state, }
+
         default: return state;
     }
 };
