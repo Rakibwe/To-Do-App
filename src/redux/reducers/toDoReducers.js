@@ -18,14 +18,32 @@ const toDoReducers = (state = initialState, action) => {
             const remaining = state.toDoItem.filter(item => item.toDoId !== toDoKey)
             return { ...state, toDoItem: remaining };
         case UPDATE_TODO:
-            // console.log(action.updateItem.todo)
-            // console.log(action)
-            const updateToDo = { pd: action.updateItem.todo, toDoId: action.updateItem.updateKey };
-            const checkout = state.toDoItem.find(checkId => checkId.toDoId == action.updateItem.updateKey);
-             checkout = updateToDo;
-            const ddr = [...state.toDoItem, change]
-            return { ...state, ddr }
+            //  first try----->
+            // newToDo = [...state];
+            // let index = -1;
+            // for (let i = 0; i < newToDo.length; i++) {
+            //     index++;
+            //     if (newToDo[i].toDoId == action.updateItem.updateKey) {
+            //         break;
+            //     }
 
+            // }
+            // if (index != -1) {
+            //     newToDo[index] = action.updateItem
+            // }
+
+            // second try ------->
+            // const updateToDo = { pd: action.updateItem.todo, toDoId: action.updateItem.updateKey };
+            // const checkout = state.toDoItem.find(checkId => checkId.toDoId == action.updateItem.updateKey);
+            //  const change = checkout = updateToDo;
+            // const item = [...state.toDoItem, change]
+            //  newToDos = [...state,item];
+
+            //   third try ----->
+            const checkout = state.toDoItem.find(checkId => checkId.toDoId == action.updateItem.updateKey);
+            const data = state.toDoItem[checkout.toDoId] = action.updateItem
+            const update = [...state, data]
+            return { ...state, update };
         default: return state;
     }
 };

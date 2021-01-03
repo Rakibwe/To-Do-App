@@ -5,6 +5,7 @@ import ToDoItem from '../ToDoItem/ToDoItem';
 
 const ToDoList = ({ product, removeToDo }) => {
 
+    console.log(product)
     return (
         <div>
             {
